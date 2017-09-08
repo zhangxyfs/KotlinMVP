@@ -11,12 +11,12 @@ object NetConfig {
 
     init{
         if(isLocal){
-            val BASE_HEAD = "http://192.168.60.189"
+            val BASE_HEAD = "http://xxx.xxx.xx.xxx"
             val BASE_END = ":18383/rest"
 
             BASE_URL = BASE_HEAD + BASE_END
         }else{
-            val BASE_HEAD = "https://webgateway.123eblog.com/rest"
+            val BASE_HEAD = "https://github.com"
             val BASE_END = ""
 
             BASE_URL = BASE_HEAD + BASE_END

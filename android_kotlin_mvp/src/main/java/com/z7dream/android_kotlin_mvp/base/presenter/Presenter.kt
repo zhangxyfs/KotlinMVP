@@ -2,6 +2,7 @@ package com.z7dream.android_kotlin_mvp.base.presenter
 
 import android.content.Context
 import android.widget.Toast
+import com.z7dream.android_kotlin_mvp.base.model.BaseService
 import com.z7dream.android_kotlin_mvp.base.view.BaseContract
 
 /**
@@ -10,10 +11,12 @@ import com.z7dream.android_kotlin_mvp.base.view.BaseContract
  * Created by Z7Dream on 2017/9/6 10:26.
  * Email:zhangxyfs@126.com
  */
-abstract class Presenter<V : BaseContract.BaseView>(context: Context, view: V):BaseContract.BasePresenter {
+abstract class Presenter<V : BaseContract.BaseView, M : BaseService>(context: Context, view: V) : BaseContract.BasePresenter {
     private var mView: V? = view;
     private var mContext: Context? = context;
-    private var mToast: Toast? = null;
+    private var mService: M = createService();
+
+    abstract fun createService(): M;
 
     protected fun getView(): V? {
         return mView;
@@ -21,6 +24,10 @@ abstract class Presenter<V : BaseContract.BaseView>(context: Context, view: V):B
 
     protected fun getContext(): Context? {
         return mContext;
+    }
+
+    protected fun getService(): M {
+        return mService;
     }
 
     override fun detachView() {

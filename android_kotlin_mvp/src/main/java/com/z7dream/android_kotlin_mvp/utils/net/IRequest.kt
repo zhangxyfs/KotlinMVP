@@ -5,4 +5,5 @@ package com.z7dream.android_kotlin_mvp.utils.net
  * Email:zhangxyfs@126.com
  */
 interface IRequest {
+
 }
