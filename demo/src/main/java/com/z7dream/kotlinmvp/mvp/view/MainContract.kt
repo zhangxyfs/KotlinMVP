@@ -1,6 +1,7 @@
 package com.z7dream.kotlinmvp.mvp.view
 
 import com.z7dream.android_kotlin_mvp.base.view.BaseContract
+import com.z7dream.kotlinmvp.mvp.ui.model.MainModel
 
 
 /**
@@ -9,7 +10,9 @@ import com.z7dream.android_kotlin_mvp.base.view.BaseContract
  */
 interface MainContract : BaseContract.BaseView {
     interface View : BaseContract.BaseView {
-        fun getDataSucc(isRef: Boolean)
+        fun getDataSucc(modelList : List<MainModel>, isRef: Boolean)
+
+        fun getDataFail()
     }
 
     interface Presenter : BaseContract.BasePresenter {

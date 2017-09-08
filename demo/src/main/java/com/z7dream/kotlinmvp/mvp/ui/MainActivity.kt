@@ -9,6 +9,7 @@ import com.z7dream.android_kotlin_mvp.utils.rx.RxBus
 import com.z7dream.android_kotlin_mvp.utils.rx.RxSchedulersHelper
 import com.z7dream.kotlinmvp.R
 import com.z7dream.kotlinmvp.mvp.presenter.MainPresenter
+import com.z7dream.kotlinmvp.mvp.ui.model.MainModel
 import com.z7dream.kotlinmvp.mvp.view.MainContract
 import io.reactivex.Observable
 
@@ -41,8 +42,12 @@ class MainActivity : BaseActivity<MainContract.Presenter, Application>(), MainCo
         return R.layout.activity_main
     }
 
-    override fun getDataSucc(isRef: Boolean) {
+    override fun getDataSucc(modelList: List<MainModel>, isRef: Boolean) {
         Toast.makeText(this, "succ", Toast.LENGTH_SHORT).show();
+    }
+
+    override fun getDataFail() {
+        Toast.makeText(this, "fail", Toast.LENGTH_SHORT).show();
     }
 
     override fun onDestroy() {

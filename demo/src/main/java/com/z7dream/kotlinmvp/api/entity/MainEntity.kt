@@ -6,5 +6,5 @@ package com.z7dream.kotlinmvp.api.entity
  */
 open class MainEntity constructor(
         val title: String,
-        val name: String
+        val url: String
 )

@@ -10,12 +10,21 @@ import com.z7dream.kotlinmvp.mvp.view.MainContract
  * Email:zhangxyfs@126.com
  */
 open class MainPresenter(context: Context, view: MainContract.View) : Presenter<MainContract.View, MainService>(context, view), MainContract.Presenter {
+    private var page: Int = 0;
     override fun createService(): MainService {
         return MainService()
     }
 
     override fun getData(isRef: Boolean) {
-        getView()?.getDataSucc(isRef);
+        page = if (isRef) 0 else page++
+        getService()
+                .getData(page)
+                .compose(getView()?.bindToLifecycle())
+                .subscribe({ list ->
+                    getView()?.getDataSucc(list, isRef);
+                }, {
+                    getView()?.getDataFail()
+                })
     }
 
     override fun detachView() {

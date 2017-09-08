@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
  */
 open class OKHTTP {
     private var mHttpClient: OkHttpClient? = null;
-    private var mRetrofit : Retrofit? = null;
+    private var mRetrofit: Retrofit? = null;
 
     val HTTP_CONNECTION_TIMEOUT = 15 * 1000
 
@@ -130,7 +130,11 @@ open class OKHTTP {
 
 
     fun getRetrofit(): Retrofit {
-        return mRetrofit!!;
+        if (mRetrofit == null) {
+            throw ExceptionInInitializerError("please call init() in your Application.")
+        } else {
+            return mRetrofit!!;
+        }
     }
 
     fun setDebug(isDebug: Boolean): OKHTTP {
@@ -142,9 +146,7 @@ open class OKHTTP {
         private val TAG = OKHTTP::class.java.simpleName//::class.java 反射
         private var DEBUG = false
 
-        fun get(): OKHTTP {
-            return OKHTTPHolder.instance
-        }
+        fun get(): OKHTTP = OKHTTPHolder.instance
 
         private object OKHTTPHolder {
             val instance = OKHTTP()
