@@ -1,4 +1,4 @@
-package com.z7dream.android_kotlin_mvp.utils
+package com.z7dream.android_kotlin_mvp.utils.rx
 
 
 import io.reactivex.FlowableTransformer

@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.z7dream.android_kotlin_mvp.ui.BaseActivity
-import com.z7dream.android_kotlin_mvp.utils.RxBus
-import com.z7dream.android_kotlin_mvp.utils.RxSchedulersHelper
+import com.z7dream.android_kotlin_mvp.utils.rx.RxBus
+import com.z7dream.android_kotlin_mvp.utils.rx.RxSchedulersHelper
 import com.z7dream.kotlinmvp.R
 import com.z7dream.kotlinmvp.mvp.presenter.MainPresenter
 import com.z7dream.kotlinmvp.mvp.view.MainContract
@@ -31,7 +31,6 @@ class MainActivity : BaseActivity<MainContract.Presenter, Application>(), MainCo
                 }, { error ->
                     Log.e("tag", error.message)
                 });
-
     }
 
     override fun createPreseneter(): MainPresenter {

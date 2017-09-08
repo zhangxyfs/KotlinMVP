@@ -16,7 +16,7 @@ import android.widget.Toast
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity
 import com.z7dream.android_kotlin_mvp.R
 import com.z7dream.android_kotlin_mvp.base.view.BaseContract
-import com.z7dream.android_kotlin_mvp.utils.RxBus
+import com.z7dream.android_kotlin_mvp.utils.rx.RxBus
 import com.z7dream.android_kotlin_mvp.utils.WeakHandler
 import java.util.*
 
