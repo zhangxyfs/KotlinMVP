@@ -1,4 +1,4 @@
-package com.z7dream.kotlinmvp
+package com.z7dream.kotlinmvp.mvp.model
 
 import com.z7dream.android_kotlin_mvp.base.model.BaseService
 

@@ -1,4 +1,4 @@
-package com.z7dream.kotlinmvp
+package com.z7dream.kotlinmvp.mvp.ui
 
 import android.app.Application
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.widget.Toast
 import com.z7dream.android_kotlin_mvp.ui.BaseActivity
 import com.z7dream.android_kotlin_mvp.utils.RxBus
 import com.z7dream.android_kotlin_mvp.utils.RxSchedulersHelper
+import com.z7dream.kotlinmvp.R
+import com.z7dream.kotlinmvp.mvp.presenter.MainPresenter
+import com.z7dream.kotlinmvp.mvp.view.MainContract
 import io.reactivex.Observable
 
 class MainActivity : BaseActivity<MainContract.Presenter, Application>(), MainContract.View {
@@ -28,6 +31,7 @@ class MainActivity : BaseActivity<MainContract.Presenter, Application>(), MainCo
                 }, { error ->
                     Log.e("tag", error.message)
                 });
+
     }
 
     override fun createPreseneter(): MainPresenter {

@@ -1,7 +1,9 @@
-package com.z7dream.kotlinmvp
+package com.z7dream.kotlinmvp.mvp.presenter
 
 import android.content.Context
 import com.z7dream.android_kotlin_mvp.base.presenter.Presenter
+import com.z7dream.kotlinmvp.mvp.model.MainService
+import com.z7dream.kotlinmvp.mvp.view.MainContract
 
 /**
  * Created by Z7Dream on 2017/9/6 15:33.

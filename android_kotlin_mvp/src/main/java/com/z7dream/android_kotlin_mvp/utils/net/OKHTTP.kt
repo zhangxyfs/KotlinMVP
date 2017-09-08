@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit
  */
 open class OKHTTP {
     private var mHttpClient: OkHttpClient? = null;
-    private var mReqeust: IRequest? = null;
+    private var mRetrofit : Retrofit? = null;
 
     val HTTP_CONNECTION_TIMEOUT = 15 * 1000
 
@@ -92,14 +92,13 @@ open class OKHTTP {
                 .addNetworkInterceptor(headInterceptor)//设置网络拦截器
                 .authenticator(authenticator).build()
 
-        val retrofit = Retrofit.Builder()
+        mRetrofit = Retrofit.Builder()
                 .client(mHttpClient)
                 .baseUrl(NetConfig.SERVER_ADD + "/")
                 .addConverterFactory(GsonConverterFactory.create())//json转换器
                 .addConverterFactory(ScalarsConverterFactory.create())//字符串转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//RxJavaCallAdapterFactory
                 .build()
-        mReqeust = retrofit.create<IRequest>(IRequest::class.java);
     }
 
     @Throws(IOException::class)
@@ -130,8 +129,8 @@ open class OKHTTP {
     }
 
 
-    fun getRequest(): IRequest {
-        return mReqeust!!;
+    fun getRetrofit(): Retrofit {
+        return mRetrofit!!;
     }
 
     fun setDebug(isDebug: Boolean): OKHTTP {

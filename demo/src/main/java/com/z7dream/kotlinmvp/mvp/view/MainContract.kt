@@ -1,4 +1,4 @@
-package com.z7dream.kotlinmvp
+package com.z7dream.kotlinmvp.mvp.view
 
 import com.z7dream.android_kotlin_mvp.base.view.BaseContract
 
