@@ -1,0 +1,27 @@
+package com.z7dream.android_kotlin_mvp.utils.net
+
+/**
+ * Created by Z7Dream on 2017/9/7 18:28.
+ * Email:zhangxyfs@126.com
+ */
+object NetConfig {
+    val isLocal = false
+    internal val BASE_URL: String
+    internal val SERVER_ADD: String
+
+    init{
+        if(isLocal){
+            val BASE_HEAD = "http://192.168.60.189"
+            val BASE_END = ":18383/rest"
+
+            BASE_URL = BASE_HEAD + BASE_END
+        }else{
+            val BASE_HEAD = "https://webgateway.123eblog.com/rest"
+            val BASE_END = ""
+
+            BASE_URL = BASE_HEAD + BASE_END
+        }
+
+        SERVER_ADD = BASE_URL
+    }
+}
