@@ -1,5 +1,7 @@
 # KotlinMVP
 kotlin版的MVP框架
+##### 截图：
+![](https://github.com/zhangxyfs/KotlinMVP/blob/master/picture/MVP.jpg)
 ##### 如何使用？
 ```
 buildscript {
