@@ -18,17 +18,11 @@ abstract class Presenter<V : BaseContract.BaseView, M : BaseService>(context: Co
 
     abstract fun createService(): M;
 
-    protected fun getView(): V? {
-        return mView;
-    }
+    protected fun getView(): V? = mView
 
-    protected fun getContext(): Context? {
-        return mContext;
-    }
+    protected fun getContext(): Context? = mContext
 
-    protected fun getService(): M {
-        return mService;
-    }
+    protected fun getService(): M = mService
 
     override fun detachView() {
         mView = null;

@@ -22,4 +22,9 @@ class Main1Presenter(context: Context, view: Main1Contract.View) : Presenter<Mai
         mMain1Service = Main1Service()
         return MainService()
     };
+
+    override fun detachView() {
+        super.detachView()
+        mMain1Service = null;
+    }
 }
