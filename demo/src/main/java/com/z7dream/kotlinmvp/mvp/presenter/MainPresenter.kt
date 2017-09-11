@@ -11,9 +11,8 @@ import com.z7dream.kotlinmvp.mvp.view.MainContract
  */
 open class MainPresenter(context: Context, view: MainContract.View) : Presenter<MainContract.View, MainService>(context, view), MainContract.Presenter {
     private var page: Int = 0;
-    override fun createService(): MainService {
-        return MainService()
-    }
+
+    override fun createService(): MainService  = MainService()
 
     override fun getData(isRef: Boolean) {
         page = if (isRef) 0 else page++
@@ -23,7 +22,7 @@ open class MainPresenter(context: Context, view: MainContract.View) : Presenter<
                 .subscribe({ list ->
                     getView()?.getDataSucc(list, isRef);
                 }, {
-                    getView()?.getDataFail()
+                    getView()?.getDataFail("fail")
                 })
     }
 

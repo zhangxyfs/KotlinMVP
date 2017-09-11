@@ -10,9 +10,9 @@ import com.z7dream.kotlinmvp.mvp.ui.model.MainModel
  */
 interface MainContract : BaseContract.BaseView {
     interface View : BaseContract.BaseView {
-        fun getDataSucc(modelList : List<MainModel>, isRef: Boolean)
+        fun getDataSucc(modelList: List<MainModel>, isRef: Boolean)
 
-        fun getDataFail()
+        fun getDataFail(str: String?)
     }
 
     interface Presenter : BaseContract.BasePresenter {
