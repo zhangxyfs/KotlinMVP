@@ -26,7 +26,7 @@ open class OKHTTP {
 
     val HTTP_CONNECTION_TIMEOUT = 15 * 1000
 
-    fun init(headMap: HashMap<String, String>?) {
+    fun init(headMap: HashMap<String, String>?, baseUrl: String?) {
         //log 拦截器
         val logInterceptor = HttpLoggingInterceptor()
         if (DEBUG) {
@@ -92,9 +92,13 @@ open class OKHTTP {
                 .addNetworkInterceptor(headInterceptor)//设置网络拦截器
                 .authenticator(authenticator).build()
 
-        mRetrofit = Retrofit.Builder()
-                .client(mHttpClient)
-                .baseUrl(NetConfig.SERVER_ADD + "/")
+        val mBuilder = Retrofit.Builder()
+                .client(mHttpClient);
+        if (TextUtils.isEmpty(baseUrl))
+            mBuilder.baseUrl(NetConfig.SERVER_ADD + "/");
+        else
+            mBuilder.baseUrl(baseUrl + "/")
+        mRetrofit = mBuilder
                 .addConverterFactory(GsonConverterFactory.create())//json转换器
                 .addConverterFactory(ScalarsConverterFactory.create())//字符串转换器
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//RxJavaCallAdapterFactory

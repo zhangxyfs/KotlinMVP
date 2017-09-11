@@ -14,6 +14,6 @@ class DemoApplication : Application() {
         OKHTTP
                 .get()
                 .setDebug(true)//开启debug模式
-                .init(null)//初始化
+                .init(null, null)//初始化
     }
 }

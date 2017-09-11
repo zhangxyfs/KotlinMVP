@@ -18,7 +18,7 @@ open class MainPresenter(context: Context, view: MainContract.View) : Presenter<
     override fun getData(isRef: Boolean) {
         page = if (isRef) 0 else page++
         getService()
-                .getData(page)
+                .getData()
                 .compose(getView()?.bindToLifecycle())
                 .subscribe({ list ->
                     getView()?.getDataSucc(list, isRef);

@@ -11,8 +11,8 @@ import io.reactivex.Observable
 class ApiClient {
 
     companion object {
-        fun getData(size: Int, page: Int): Observable<List<MainEntity>> {
-            return RequestManager.REQUEST.getMainData(size, page).compose(RxResultHelper.handleResult());
+        fun getData(): Observable<List<MainEntity>> {
+            return RequestManager.REQUEST.getMainData().compose(RxResultHelper.handleResult());
         }
     }
 }

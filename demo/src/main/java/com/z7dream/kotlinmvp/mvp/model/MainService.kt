@@ -12,11 +12,11 @@ import io.reactivex.schedulers.Schedulers
  */
 class MainService : BaseService() {
 
-    fun getData(page: Int): Observable<List<MainModel>> =
-            ApiClient.getData(SIZE, page)
+    fun getData(): Observable<List<MainModel>> =
+            ApiClient.getData()
                     .subscribeOn(Schedulers.io())
                     .map { list ->
-                        val modelList: MutableList<MainModel> = ArrayList<MainModel>()
+                        val modelList: MutableList<MainModel> = ArrayList()
                         for (entity in list) {
                             modelList.add(MainModel(entity.title, entity.url))
                         }
