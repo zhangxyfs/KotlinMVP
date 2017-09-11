@@ -28,3 +28,13 @@ dependencies {
     compile "com.squareup.retrofit2:converter-scalars:$retrofit_version"
 }
 ```
+在你的application里加入以下代码：
+```kotlin
+    override fun onCreate() {
+        super.onCreate()
+        OKHTTP
+                .get()
+                .setDebug(true)//开启debug模式
+                .init(null, null)//初始化
+    }
+```

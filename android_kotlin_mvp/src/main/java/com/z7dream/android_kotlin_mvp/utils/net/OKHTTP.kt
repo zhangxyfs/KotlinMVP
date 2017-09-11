@@ -26,6 +26,11 @@ open class OKHTTP {
 
     val HTTP_CONNECTION_TIMEOUT = 15 * 1000
 
+    /**
+     * 初始化
+     * @param headMap 请求时默认head信息
+     * @param baseUrl 请求路径基础url（末尾不要加'/'）
+     */
     fun init(headMap: HashMap<String, String>?, baseUrl: String?) {
         //log 拦截器
         val logInterceptor = HttpLoggingInterceptor()
