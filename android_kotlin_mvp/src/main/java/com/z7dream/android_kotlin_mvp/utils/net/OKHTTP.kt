@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit
  * Created by Z7Dream on 2017/9/7 14:36.
  * Email:zhangxyfs@126.com
  */
-open internal class OKHTTP {
+open class OKHTTP {
     private var mHttpClient: OkHttpClient? = null;
     private var mRetrofit: Retrofit? = null;
 
